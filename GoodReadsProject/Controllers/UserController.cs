@@ -14,9 +14,9 @@ namespace GoodReadsProject.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly BusinessLayer mainBusinessLayer;
+        private readonly IRepositoryBusinessLayer mainBusinessLayer;
 
-        public UserController(BusinessLayer mainBusinessLayer)
+        public UserController(IRepositoryBusinessLayer mainBusinessLayer)
         {
             this.mainBusinessLayer = mainBusinessLayer;
         }
@@ -46,13 +46,13 @@ namespace GoodReadsProject.Controllers
 
         // POST api/<RatingController>
         [HttpPost]
-        public async IActionResult Post([FromBody] User user)
+        public IActionResult Post([FromBody] User user)
         {
             if (user == null)
             {
                 return BadRequest("Uups something went wrong!");
             }
-            bool isAdded = await mainBusinessLayer.CreateUser(user);
+            bool isAdded = mainBusinessLayer.CreateUser(user);
             if (!isAdded)
             {
                 return BadRequest("User can't be saved");

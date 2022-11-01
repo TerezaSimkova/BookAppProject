@@ -25,7 +25,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
         public string BookDescription { get; set; }
         [Required]
         [DisplayName("Price")]
-        [RegularExpression(@"^\$?\d+(\.(\d{2}))?$")]
+        [RegularExpression(@"^(0|-?\d{0,16}(\.\d{0,2})?)$")]
         public decimal Price { get; set; }     
         //FK verso Rating      
         public int RatingId { get; set; }

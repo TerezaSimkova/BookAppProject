@@ -23,7 +23,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8}$",
      ErrorMessage = "Password must meet requirements")]
         public string Password { get; set; }
-        public string Email { get; set; }
+        public string EmailAddress { get; set; }
 
         [Required]
         public DateTime DateOfBirth { get; set; }

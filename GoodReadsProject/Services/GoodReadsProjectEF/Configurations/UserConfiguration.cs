@@ -12,7 +12,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF
             user.Property(u => u.Name).IsRequired();
             user.Property(u => u.Surname).IsRequired();
             user.Property(u => u.Address).IsRequired();
-            user.Property(u => u.Email).IsRequired();
+            user.Property(u => u.EmailAddress).IsRequired();
             user.Property(u => u.DateOfBirth).IsRequired();
 
             user.HasMany(x => x.UserBooks).WithOne(u => u.User).HasForeignKey(f => f.UserId);

@@ -15,9 +15,9 @@ namespace GoodReadsProject.Controllers
     public class RatingController : ControllerBase
     {
 
-        private readonly BusinessLayer mainBusinessLayer;
+        private readonly IRepositoryBusinessLayer mainBusinessLayer;
 
-        public RatingController(BusinessLayer mainBusinessLayer)
+        public RatingController(IRepositoryBusinessLayer mainBusinessLayer)
         {
             this.mainBusinessLayer = mainBusinessLayer;
         }

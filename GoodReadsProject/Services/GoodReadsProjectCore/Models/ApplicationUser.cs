@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
 {
-    public class ApplicationUser : IdentityUser
-    {
-    }
+    //public class ApplicationUser : IdentityUser
+    //{
+    //}
 }

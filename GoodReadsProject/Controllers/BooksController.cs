@@ -14,9 +14,9 @@ namespace GoodReadsProject.Controllers
     public class BooksController : ControllerBase
     {
 
-        private readonly BusinessLayer mainBusinessLayer;
+        private readonly IRepositoryBusinessLayer mainBusinessLayer;
 
-        public BooksController(BusinessLayer mainBusinessLayer)
+        public BooksController(IRepositoryBusinessLayer mainBusinessLayer)
         {
             this.mainBusinessLayer = mainBusinessLayer;
         }

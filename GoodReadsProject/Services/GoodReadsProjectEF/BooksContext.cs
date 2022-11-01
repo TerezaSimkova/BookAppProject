@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GoodReadsProject.Services.GoodReadsProjectEF
 {
-    public class BooksContext : IdentityDbContext<User>
+    public class BooksContext : DbContext
     {
         public DbSet<User> User { get; set; }
         public DbSet<Book> Book { get; set; }
