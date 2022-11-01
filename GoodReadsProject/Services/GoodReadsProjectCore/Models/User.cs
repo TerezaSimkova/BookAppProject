@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -16,21 +17,24 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
         [Required]
         [StringLength(20)]
         public string Surname { get; set; }
-        public int Age { get; set; }
+        public string UserName { get; set; }
+        public int? Age { get; set; }
+        [Required]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8}$",
+     ErrorMessage = "Password must meet requirements")]
+        public string Password { get; set; }
+        public string Email { get; set; }
+
         [Required]
         public DateTime DateOfBirth { get; set; }
-        [Required]
         public string Address { get; set; }
-        [Required]
-        public string EmailAddress { get; set; }
         public string PersonalDescription { get; set; }
-        [Required]
         [DisplayName("Type of user")]
-        public UserType userType { get; set; }
-        [Required]
+        public UserType? userType { get; set; }
         [DisplayName("User level")]
-        public UserLevel userLevel { get; set; }
+        public UserLevel? userLevel { get; set; }
         public ICollection<UserBook> UserBooks { get; set; }
+        public Role? userRole { get; set; }
 
         public enum UserType
         {
@@ -44,6 +48,12 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
             silver = 0,
             platinum = 1,
             gold = 2
+        }
+
+        public enum Role
+        {
+            SignedInUser,
+            AnonymousUser,
         }
     }
 }

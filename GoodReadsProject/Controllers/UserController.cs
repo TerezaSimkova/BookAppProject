@@ -1,5 +1,6 @@
 ﻿using GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer;
 using GoodReadsProject.Services.GoodReadsProjectCore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -45,13 +46,13 @@ namespace GoodReadsProject.Controllers
 
         // POST api/<RatingController>
         [HttpPost]
-        public IActionResult Post([FromBody] User user)
+        public async IActionResult Post([FromBody] User user)
         {
             if (user == null)
             {
                 return BadRequest("Uups something went wrong!");
             }
-            bool isAdded = mainBusinessLayer.CreateUser(user);
+            bool isAdded = await mainBusinessLayer.CreateUser(user);
             if (!isAdded)
             {
                 return BadRequest("User can't be saved");

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoodReadsProject.Migrations
 {
     [DbContext(typeof(BooksContext))]
-    [Migration("20221019195753_FourthMigration")]
-    partial class FourthMigration
+    [Migration("20221031090054_AuthMigration")]
+    partial class AuthMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,13 +94,13 @@ namespace GoodReadsProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Age")
+                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EmailAddress")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -108,6 +108,10 @@ namespace GoodReadsProject.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PersonalDescription")
                         .HasColumnType("nvarchar(max)");
@@ -117,10 +121,16 @@ namespace GoodReadsProject.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("userLevel")
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("userLevel")
                         .HasColumnType("int");
 
-                    b.Property<int>("userType")
+                    b.Property<int?>("userRole")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("userType")
                         .HasColumnType("int");
 
                     b.HasKey("UserId");
