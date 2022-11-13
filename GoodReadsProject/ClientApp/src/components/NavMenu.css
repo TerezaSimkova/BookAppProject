@@ -12,19 +12,42 @@ html {
     font-size: 16px;
   }
 }
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.Logo {
+    background-image: url(../Immages/books_logo.svg);
+    width: 40px;
+    height: 40px;
 }
-svg.navbar-logo:hover {
-    color: grey;
-    padding-right: 10px;
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    background-color: #002720;
 }
 
 .navbar-nav li {
     padding-right: 10px;
 }
 
-.navbar-nav li a svg:hover {
-    color: grey;
+.navbar-nav li a svg {
+    color: white;
+}
+a.text-dark.nav-link:hover {
+    background-color: #4a7f82;
+    color: white;
+    border-radius: 50px;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-weight: 200;
+}
+.navbar-nav .nav-item p {
+    color: white;
+    margin: 7px;
+}
+
+a.nav-text.nav-link:hover {
+    background-color: #4a7f82;
+    color: white !important;
+    border-radius: 6px;
+}
+.navbar-toggler-icon {
+    color: white;
 }
