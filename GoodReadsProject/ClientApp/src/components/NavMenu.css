@@ -3,9 +3,11 @@
   text-align: center;
   word-break: break-all;
 }
-
+.navbar-expand-sm .navbar-toggleable-sm .ng-white .border-bottom .box-shadow .mb-3 navbar .navbar-light {
+    margin-bottom: 0 !important;
+}
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 @media (min-width: 768px) {
   html {

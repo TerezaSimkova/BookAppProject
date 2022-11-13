@@ -3,6 +3,7 @@ import { Container } from 'reactstrap';
 import { NavMenu } from './NavMenu';
 import { SideNav } from './SideNav';
 import { Body } from './MainBody';
+import { Footer } from './Footer';
 
 
 export class Layout extends Component {
@@ -16,6 +17,7 @@ export class Layout extends Component {
                 </Container>
                 <Body />
                 <SideNav />
+                <Footer />
             </div>
         );
     }

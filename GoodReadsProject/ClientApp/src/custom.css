@@ -7,10 +7,17 @@ code {
     color: #E01A76;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+.main-body {
+    margin: 0;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    background-image: url(Immages/landing-page.svg);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: -1;
 }
 .side-nav-container {
     position:relative;
@@ -88,13 +95,7 @@ code {
     background-color: white;
 }
 
-    .main-body {
-        margin: 0;
-        height: 500px;
-        position: absolute;
-        background-color: white;
-        width: 100%;
-    }
+  
 
 .side-nav-div-items {
     /*width: 170px !important;*/
@@ -125,3 +126,57 @@ code {
     height: 50px;
     width: 50px;
 }
+
+
+/*footer*/
+
+.footer-bar {
+position: fixed;
+bottom: 0;
+width: 100%;
+height: 100px;
+background-color:white;
+border-top: 0.5px solid grey;
+}
+.footer-content {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.footer-social {
+    display:flex;
+    width:120px;
+}
+.facebook {
+    background-image: url(Immages/facebook.svg);
+    background-repeat: no-repeat;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.instagram {
+    background-image: url(Immages/square-instagram.svg);
+    background-repeat: no-repeat;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.pinterest {
+    background-image: url(Immages/pinterest.svg);
+    background-repeat: no-repeat;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.twitter {
+    background-image: url(Immages/twitter.svg);
+    background-repeat: no-repeat;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+

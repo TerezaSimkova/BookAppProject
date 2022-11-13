@@ -20,18 +20,18 @@ export function SideNav() {
         sideNavBtnClose.classList.toggle('active');
 
         // add class on click
-        var sideMenu = document.getElementById("sideMenuNav");  
+        var sideMenu = document.getElementById("sideMenuNav");
         sideMenu.classList.add('open-side-menu');
 
         var sideNavBtnClose = document.getElementById("sideMenuNavClose");
         sideNavBtnClose.style.display = "flex";
-        
+
         const text = document.getElementsByClassName("side-nav-text");
         for (let i = 0; i < text.length; i++) {
             const t = text[i];
             t.style.display = "flex";
         }
-       
+
         const divs = document.getElementsByClassName("icon");
         for (let i = 0; i < divs.length; i++) {
             const div = divs[i];
@@ -63,8 +63,8 @@ export function SideNav() {
 
     return (
         <div className="side-nav-container">
-                <div className="menu-btn"><a onClick={openSideMenu} id="hamburgerMenuSidenNav"><FontAwesomeIcon className="side-nav-heart" icon={faListDots} size="lg" /></a></div>
-                <button onClick={closeSideMenu} className="side-nav-close-btn" id="sideMenuNavClose"><FontAwesomeIcon icon={faClose} size="lg" /></button>
+            <div className="menu-btn"><a onClick={openSideMenu} id="hamburgerMenuSidenNav"><FontAwesomeIcon className="side-nav-heart" icon={faListDots} size="lg" /></a></div>
+            <button onClick={closeSideMenu} className="side-nav-close-btn" id="sideMenuNavClose"><FontAwesomeIcon icon={faClose} size="lg" /></button>
             <div className="side-nav-menu" id="sideMenuNav">
                 <div className="icon">
                     <a className="anchor" href="#">
