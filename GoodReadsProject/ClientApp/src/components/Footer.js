@@ -13,19 +13,21 @@ export class Footer extends Component {
         return (
             <div className="footer-bar">
                 <div className="footer-content">
-                    <div>
+                    <div className="footer-text-part">
+                        <div className="footer-logo">
+                        </div>
                         <p>Book Site ©2022</p>
                     </div>
                     <div className="footer-social">
-                        <div className="twitter"></div>
-                        <div className="pinterest"></div>
-                        <div className="facebook"></div>
-                        <div className="instagram"></div>
+                        <a href="#" className="twitter"></a>
+                        <a href="#" className="pinterest"></a>
+                        <a href="#" className="facebook"></a>
+                        <a href="#" className="instagram"></a>
                     </div>
-                    <div>
-                        <span>Privacy</span>|
-                        <span>Legal Notes</span>|
-                        <span>Conditions</span>
+                    <div className="footer-info-part">
+                        <a href="#">Privacy |</a>
+                        <a href="#"> Legal Notes |</a>
+                        <a href="#"> Conditions</a>
                     </div>
                 </div>
             </div>
