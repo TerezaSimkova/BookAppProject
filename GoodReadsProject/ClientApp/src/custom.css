@@ -51,15 +51,20 @@ code {
         background-color: #002720;
         margin: 14px;
         color:white;
+        cursor: pointer;
     }
 
-    .side-nav-container #hamburgerMenuSidenNav.active {
-        background-color: #B6174B;
+        .side-nav-container #hamburgerMenuSidenNav:hover {
+            background-color: #B6174B;
+        }
+
+    .side-nav-container #hamburgerMenuSidenNav.active {        
         height: 50px;
         width: 50px;
         padding: 13px;
         color: white;
         border-radius: 100px;
+        display: none;
     }
 
 .open-side-menu {
