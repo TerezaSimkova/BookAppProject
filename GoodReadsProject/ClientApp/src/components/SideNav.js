@@ -1,4 +1,8 @@
 ﻿import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { Component } from 'react';
+import { useEffect, useState } from 'react';
+import { Route } from 'react-router';
+import { Outlet, Link } from "react-router-dom";
 
 //Icons
 import 'font-awesome/css/font-awesome.min.css';
@@ -12,9 +16,24 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 
-export function SideNav() {
+export class SideNav extends Component{
+    constructor(props) {
+        super(props);
 
-    const openSideMenu = () => {
+        this.state = {
+            add: null,
+            info: null,
+            contact: null,
+            myList: null,
+        }
+    }
+    openSideMenu = () => {
+
+        this.setState({ add: 'Add' });
+        this.setState({ info: 'Info' });
+        this.setState({ contact: 'Contacts' });
+        this.setState({ myList: 'My List' });
+
         // toggle class on click
         var sideNavBtnClose = document.getElementById("hamburgerMenuSidenNav");
         sideNavBtnClose.classList.toggle('active');
@@ -43,8 +62,11 @@ export function SideNav() {
             anchor.classList.add('side-nav-link');
         }
 
-    };
-    const closeSideMenu = () => {
+    }
+    closeSideMenu = () => {
+
+        this.setState({ add: null , info: null, contact: null, myList: null});
+
         var sideMenu = document.getElementById("sideMenuNav");
         sideMenu.classList.remove('open-side-menu');
 
@@ -54,45 +76,40 @@ export function SideNav() {
         var sideNavBtnClose = document.getElementById("hamburgerMenuSidenNav");
         sideNavBtnClose.classList.remove('active');
 
-        const text = document.getElementsByClassName("side-nav-text");
+        const text = document.querySelectorAll("icon anchor span");
         for (let i = 0; i < text.length; i++) {
             const t = text[i];
             t.style.display = "none";
         }
-    };
-
-    return (
-        <div className="side-nav-container">
-            <div className="menu-btn"><a onClick={openSideMenu} id="hamburgerMenuSidenNav"><FontAwesomeIcon className="side-nav-heart" icon={faListDots} size="lg" /></a></div>
-            <button onClick={closeSideMenu} className="side-nav-close-btn" id="sideMenuNavClose"><FontAwesomeIcon icon={faClose} size="lg" /></button>
-            <div className="side-nav-menu" id="sideMenuNav">
-                <div className="icon">
-                    <a className="anchor" href="#">
+    }
+    render() {
+        
+        return (
+            <div className="side-nav-container">
+                <div className="menu-btn"><a onClick={this.openSideMenu} id="hamburgerMenuSidenNav"><FontAwesomeIcon className="side-nav-heart" icon={faListDots} size="lg" /></a></div>
+                <button onClick={this.closeSideMenu} className="side-nav-close-btn" id="sideMenuNavClose"><FontAwesomeIcon icon={faClose} size="lg" /></button>
+                <div className="side-nav-menu" id="sideMenuNav">
+                    <Link className="icon anchor" to="/">
+                        {this.state.add}
                         <FontAwesomeIcon className="side-nav-heart" icon={faPlus} size="lg" />
-                    </a>
-                    <div className="side-nav-text">Add</div>
-                </div>
-                <div className="icon">
-                    <a className="anchor" href="#">
+                    </Link>
+                    <Link className="icon anchor" to="/myBookList">
+                        {this.state.myList}
                         <FontAwesomeIcon className="side-nav-heart" icon={faHeart} size="lg" />
-                    </a>
-                    <div className="side-nav-text">My List</div>
-                </div>
-                <div className="icon">
-                    <a className="anchor" href="#">
+                    </Link>
+                    <Link className="icon anchor" to="/info">
+                        {this.state.info}
                         <FontAwesomeIcon className="side-nav-heart" icon={faInfo} size="lg" />
-                    </a>
-                    <div className="side-nav-text">Contact</div>
-                </div>
-                <div className="icon">
-                    <a className="anchor" href="#">
+                    </Link>
+                    <Link className="icon anchor" to="/contacts">
+                        {this.state.contact}
                         <FontAwesomeIcon className="side-nav-heart" icon={faPhone} size="lg" />
-                    </a>
-                    <div className="side-nav-text">Info</div>
+                    </Link>
                 </div>
             </div>
-        </div>
-    );
+        );
 
+    }
+   
 }
 

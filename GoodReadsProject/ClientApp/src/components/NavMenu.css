@@ -50,6 +50,11 @@ a.nav-text.nav-link:hover {
     color: white !important;
     border-radius: 6px;
 }
+a.nav-text.nav-link::after {
+    background-color: #4a7f82;
+    color: white !important;
+    border-radius: 6px;
+}
 .navbar-toggler-icon {
     color: white;
 }

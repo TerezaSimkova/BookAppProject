@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import { NavMenu } from './NavMenu';
-import { SideNav } from './SideNav';
-import { Body } from './MainBody';
 import { Footer } from './Footer';
-
+//import { SideNav } from './SideNav';
 
 export class Layout extends Component {
     static displayName = Layout.name;
@@ -13,10 +11,9 @@ export class Layout extends Component {
         return (
             <div>
                 <NavMenu />
+                {/*<SideNav />*/}
                 <Container>
-                </Container>
-                <Body />
-                <SideNav />
+                </Container>               
                 <Footer />
             </div>
         );

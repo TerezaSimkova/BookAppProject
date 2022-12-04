@@ -20,29 +20,34 @@ code {
     background-size: contain;
     z-index: -1;
 }
+
 .side-nav-container {
-    position:relative;
+    position: absolute;
     height: auto;
     width: auto;
-    justify-content:center;
+    justify-content: center;
     margin-top: 50px;
+    z-index:333;
 }
-.side-nav-container .side-nav-menu {
-    height: auto;
-    width: 70px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: white;
-    border: 0.5px solid grey;
-    padding: 10px;
-    align-items: center;
-    border-radius: 0 15px 15px 0;
-}
+
+    .side-nav-container .side-nav-menu {
+        height: auto;
+        width: 70px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-color: white;
+        border: 0.5px solid grey;
+        padding: 10px;
+        align-items: center;
+        border-radius: 0 15px 15px 0;
+    }
+
     .side-nav-container .menu-btn {
         height: 50px;
         width: 50px;
     }
+
     .side-nav-container #hamburgerMenuSidenNav {
         height: 50px;
         width: 50px;
@@ -50,7 +55,7 @@ code {
         border-radius: 100px;
         background-color: #002720;
         margin: 14px;
-        color:white;
+        color: white;
         cursor: pointer;
     }
 
@@ -58,14 +63,14 @@ code {
             background-color: #B6174B;
         }
 
-    .side-nav-container #hamburgerMenuSidenNav.active {        
-        height: 50px;
-        width: 50px;
-        padding: 13px;
-        color: white;
-        border-radius: 100px;
-        display: none;
-    }
+        .side-nav-container #hamburgerMenuSidenNav.active {
+            height: 50px;
+            width: 50px;
+            padding: 13px;
+            color: white;
+            border-radius: 100px;
+            display: none;
+        }
 
 .open-side-menu {
     width: 200px !important;
@@ -73,35 +78,37 @@ code {
 }
 
 
-    .side-nav-container .side-nav-menu .icon {
-        height: 50px;
-        width: 50px;
-        padding: 9px;
-        color: #002720;
-        position: relative;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        cursor: pointer;
-    }
+.side-nav-container .side-nav-menu .icon {
+    height: 50px;
+    width: 155px;
+    padding: 9px;
+    color: #002720;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    align-content: space-around;
+}
 
-    .side-nav-container .side-nav-menu a {
-        color: #002720;
-        padding: 5px;
-        position:absolute;
-    }
+.side-nav-container .side-nav-menu a {
+    color: #002720;
+    padding: 5px;
+    position: absolute;
+}
 
 .side-nav-container .side-nav-close-btn {
     color: #002720;
     position: absolute;
     display: none;
     border: none;
-    z-index:1;
-    margin:10px;
+    z-index: 1;
+    margin: 10px;
     background-color: white;
 }
 
-  
+
 
 .side-nav-div-items {
     /*width: 170px !important;*/
@@ -124,10 +131,12 @@ code {
     width: 120px !important;
     display: none;
 }
+
     .side-nav-text p {
         margin: 5px;
         display: none;
     }
+
 .no-width {
     height: 50px;
     width: 50px;
@@ -137,13 +146,14 @@ code {
 /*footer*/
 
 .footer-bar {
-position: fixed;
-bottom: 0;
-width: 100%;
-height: 100px;
-background-color:white;
-border-top: 0.5px solid grey;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    border-top: 0.5px solid grey;
 }
+
 .footer-content {
     width: 100%;
     height: 100%;
@@ -161,7 +171,7 @@ border-top: 0.5px solid grey;
 
     .footer-social a {
         color: #002720;
-        text-decoration:none;
+        text-decoration: none;
     }
 
 .facebook {
@@ -199,11 +209,13 @@ border-top: 0.5px solid grey;
 .footer-info-part a {
     color: #002720;
 }
+
 .footer-text-part {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
     .footer-text-part p {
         margin-bottom: 9px;
     }
@@ -214,3 +226,17 @@ border-top: 0.5px solid grey;
     width: 40px;
     height: 40px;
 }
+
+.container_pages {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+    .container.container_content {
+        width: 100%;
+        height: 100%;
+        margin: 0 50px 0 50px;
+
+    }
