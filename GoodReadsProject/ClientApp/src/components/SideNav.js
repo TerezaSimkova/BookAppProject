@@ -17,6 +17,7 @@ import {
 
 
 export class SideNav extends Component{
+    
     constructor(props) {
         super(props);
 
@@ -27,6 +28,10 @@ export class SideNav extends Component{
             myList: null,
         }
     }
+    handleClick = () => {
+        var a = document.querySelector('.side-nav-container .side-nav-menu .icon svg path')
+        a.classList.toggle('pink');
+    };
     openSideMenu = () => {
 
         this.setState({ add: 'Add' });
@@ -91,19 +96,19 @@ export class SideNav extends Component{
                 <div className="side-nav-menu" id="sideMenuNav">
                     <Link className="icon anchor" to="/">
                         {this.state.add}
-                        <FontAwesomeIcon className="side-nav-heart" icon={faPlus} size="lg" />
+                        <FontAwesomeIcon onClick={this.handleClick} icon={faPlus} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/myBookList">
                         {this.state.myList}
-                        <FontAwesomeIcon className="side-nav-heart" icon={faHeart} size="lg" />
+                        <FontAwesomeIcon onClick={this.handleClick} icon={faHeart} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/info">
                         {this.state.info}
-                        <FontAwesomeIcon className="side-nav-heart" icon={faInfo} size="lg" />
+                        <FontAwesomeIcon onClick={this.handleClick} icon={faInfo} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/contacts">
                         {this.state.contact}
-                        <FontAwesomeIcon className="side-nav-heart" icon={faPhone} size="lg" />
+                        <FontAwesomeIcon onClick={this.handleClick} icon={faPhone} size="lg" />
                     </Link>
                 </div>
             </div>

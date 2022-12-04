@@ -275,3 +275,16 @@ code {
     height: 140px;
     margin-bottom: 10px;
 }
+
+.pink {
+    fill: #d80067;
+}
+.green {
+    fill: #002720;
+}
+.loading {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
