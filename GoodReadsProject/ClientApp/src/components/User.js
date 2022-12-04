@@ -1,25 +1,24 @@
 ﻿import React, { Component } from 'react';
-import { SideNav } from './SideNav';
-import { User } from './User';
+import Avatar from 'react-avatar';
 
-export class BookList extends Component {
+export class User extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             error: null,
             isLoaded: false,
-            Books: [],
+            User: [],
         };
     }
     componentDidMount() {
-        fetch("/api/Books")
+        fetch("/api/User")
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        Books: result
+                        User: result
                     });
                 },
                 (error) => {
@@ -31,7 +30,7 @@ export class BookList extends Component {
             )
     }
     render() {
-        const { error, isLoaded, Books } = this.state;
+        const { error, isLoaded, User } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -39,16 +38,18 @@ export class BookList extends Component {
         } else {
             return (
                 <div className="container_pages">
-                    <SideNav />
-                    <User />
                     <div className="container_content">
-                        <div className="books_row">
+                        <div>
                             <ul>
-                                {Books?.map((book) => (
-                                    <li key={book.bookId}>
-                                        <h3>{book.bookName}</h3>
-                                        <h4>{book.author}</h4>
-                                        <p>{book.bookDescription}</p>
+                                {User?.map((user) => (
+                                    <li key={user.userId}>
+                                        <h3>Personal Information</h3>
+                                        <h3>{user.name} {user.surname}</h3>
+                                        <div className="user_foto"></div>
+                                        <p>{user.personalDescription}</p>
+                                        <p><b>Age:</b> {user.age}</p>
+                                        <p><b>Date Of Birth:</b> {user.dateOfBirth}</p>
+                                        <p><b>E-mail Address:</b> {user.emailAddress}</p>
                                     </li>
                                 ))}
                             </ul>
@@ -57,5 +58,6 @@ export class BookList extends Component {
                 </div>
             );
         }
+
     }
 }
