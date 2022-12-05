@@ -9,7 +9,7 @@ import { Route } from 'react-router';
 import { Home } from './components/Home';
 import { Info } from './components/Info';
 import { Contacts } from './components/Contacts';
-import { FetchData } from './components/FetchData';
+import { Register } from './components/RegisterForm';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
@@ -21,7 +21,7 @@ ReactDOM.render(
         <Route exact path='/' component={Home} />
         <Route path='/contacts' component={Contacts} />
         <Route path='/info' component={Info} />
-        <Route path='/fetch-data' component={FetchData} />
+        <Route path='/register' component={Register} />
   </BrowserRouter>,
   rootElement);
 

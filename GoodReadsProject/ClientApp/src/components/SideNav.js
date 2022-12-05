@@ -1,7 +1,6 @@
 ﻿import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { useEffect, useState } from 'react';
-import { Route } from 'react-router';
 import { Outlet, Link } from "react-router-dom";
 
 //Icons
@@ -17,7 +16,7 @@ import {
 
 
 export class SideNav extends Component{
-    
+
     constructor(props) {
         super(props);
 
@@ -26,7 +25,12 @@ export class SideNav extends Component{
             info: null,
             contact: null,
             myList: null,
+            show: false
         }
+        
+    }
+    setShow = () => {
+        this.setState({ show: true });
     }
     handleClick = () => {
         var a = document.querySelector('.side-nav-container .side-nav-menu .icon svg path')
@@ -88,7 +92,6 @@ export class SideNav extends Component{
         }
     }
     render() {
-        
         return (
             <div className="side-nav-container">
                 <div className="menu-btn"><a onClick={this.openSideMenu} id="hamburgerMenuSidenNav"><FontAwesomeIcon className="side-nav-heart" icon={faListDots} size="lg" /></a></div>
@@ -96,19 +99,19 @@ export class SideNav extends Component{
                 <div className="side-nav-menu" id="sideMenuNav">
                     <Link className="icon anchor" to="/">
                         {this.state.add}
-                        <FontAwesomeIcon onClick={this.handleClick} icon={faPlus} size="lg" />
+                        <FontAwesomeIcon className={this.show ? "pink" : "green"} onClick={this.setShow} icon={faPlus} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/myBookList">
                         {this.state.myList}
-                        <FontAwesomeIcon onClick={this.handleClick} icon={faHeart} size="lg" />
+                        <FontAwesomeIcon className={this.show ? "pink" : "green"} onClick={this.setShow} icon={faHeart} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/info">
                         {this.state.info}
-                        <FontAwesomeIcon onClick={this.handleClick} icon={faInfo} size="lg" />
+                        <FontAwesomeIcon className={this.show ? "pink" : "green"} onClick={this.setShow} icon={faInfo} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/contacts">
                         {this.state.contact}
-                        <FontAwesomeIcon onClick={this.handleClick} icon={faPhone} size="lg" />
+                        <FontAwesomeIcon className={this.show ? "pink" : "green"} onClick={this.setShow} icon={faPhone} size="lg" />
                     </Link>
                 </div>
             </div>

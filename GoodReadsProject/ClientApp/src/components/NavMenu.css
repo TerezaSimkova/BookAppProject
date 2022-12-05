@@ -37,9 +37,13 @@ a.text-dark.nav-link:hover {
     border-radius: 50px;
 }
 .navbar-light .navbar-nav .nav-link {
-    color: white;
+    color: white !important;
     font-weight: 200;
 }
+    .navbar-light .navbar-nav .nav-link:active {
+        background-color: #B6174B;
+        font-weight: 200;
+    }
 .navbar-nav .nav-item p {
     color: white;
     margin: 7px;
@@ -47,7 +51,7 @@ a.text-dark.nav-link:hover {
 
 a.nav-text.nav-link:hover {
     background-color: #4a7f82;
-    color: white !important;
+    color: white;
     border-radius: 6px;
 }
 a.nav-text.nav-link::after {
