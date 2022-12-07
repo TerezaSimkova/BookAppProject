@@ -1,12 +1,8 @@
-﻿using GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer;
+﻿using GoodReadsProject.AppHelper.Models;
+using GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer;
 using GoodReadsProject.Services.GoodReadsProjectCore.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GoodReadsProject.Controllers
 {
@@ -46,12 +42,24 @@ namespace GoodReadsProject.Controllers
 
         // POST api/<RatingController>
         [HttpPost]
-        public IActionResult Post([FromBody] User user)
+        public IActionResult Post([FromBody] UserViewModel userViewModel)
         {
-            if (user == null)
+
+            if (userViewModel == null)
             {
                 return BadRequest("Uups something went wrong!");
             }
+            User user = new User
+            {
+                Name = userViewModel.Name,
+                Surname = userViewModel.Surname,
+                UserName = userViewModel.UserName,
+                Address = userViewModel.Address,
+                EmailAddress = userViewModel.EmailAddress,
+                Password = userViewModel.Password,
+                DateOfBirth = userViewModel.DateOfBirth,
+                PersonalDescription = userViewModel.PersonalDescription
+            };
             bool isAdded = mainBusinessLayer.CreateUser(user);
             if (!isAdded)
             {
