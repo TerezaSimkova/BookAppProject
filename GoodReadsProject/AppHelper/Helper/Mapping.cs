@@ -20,7 +20,9 @@ namespace GoodReadsProject.AppHelper.Helper
                 EmailAddress = user.EmailAddress,
                 Password = user.Password,
                 DateOfBirth = user.DateOfBirth,
-                PersonalDescription = user.PersonalDescription
+                PersonalDescription = user.PersonalDescription,
+                userRole = (UserViewModel.Role?)User.Role.SignedInUser,
+                ReturnUrl = user.ReturnUrl
             };
         }
         public static User ToUser(this UserViewModel userViewModel)
@@ -34,7 +36,9 @@ namespace GoodReadsProject.AppHelper.Helper
                 EmailAddress = userViewModel.EmailAddress,
                 Password = userViewModel.Password,
                 DateOfBirth = userViewModel.DateOfBirth,
-                PersonalDescription = userViewModel.PersonalDescription
+                PersonalDescription = userViewModel.PersonalDescription,
+                userRole = User.Role.SignedInUser,
+                ReturnUrl = userViewModel.ReturnUrl
             };
         }
     }

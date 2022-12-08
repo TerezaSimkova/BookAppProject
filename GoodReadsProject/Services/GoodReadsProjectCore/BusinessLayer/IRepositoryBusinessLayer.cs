@@ -10,10 +10,11 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer
     {
         //User
         public List<User> FetchAllUsers();
-        User GetUserById(int id);
+        public User GetUserById(int id);
         public bool CreateUser(User user);
         public bool EditUser(User user);
         public bool DeleteUser(int id);
+        public User GetUserByMailAndPassword(string userPassword, string userEmail);
 
         //Rating
         public List<BookRating> FetchAllRatings();

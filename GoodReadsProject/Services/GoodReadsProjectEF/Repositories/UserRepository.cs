@@ -43,6 +43,12 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
             return bcontx.User.ToList();
         }
 
+        public User GetByEmailAndPass(string userPassword, string userEmail)
+        {
+            var user = bcontx.User.SingleOrDefault(x => x.EmailAddress == userEmail && x.Password == userPassword);
+            return user;
+        }
+
         public User GetById(int id)
         {
             var user = bcontx.User.Single(x => x.UserId == id);

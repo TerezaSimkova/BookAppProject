@@ -98,6 +98,11 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer
             var rating = FetchAllRatings().Single(x => x.RatingId == id);
             return repositoryRating.GetById(rating.RatingId);
         }
+
+        public User GetUserByMailAndPassword(string userPassword, string userEmail)
+        {
+            return repositoryUser.GetByEmailAndPass(userPassword, userEmail);
+        }
         #endregion
     }
 }

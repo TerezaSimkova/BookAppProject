@@ -1,22 +1,18 @@
-using GoodReadsProject.Services.Extensions;
 using GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer;
 using GoodReadsProject.Services.GoodReadsProjectCore.Interfaces;
-using GoodReadsProject.Services.GoodReadsProjectCore.Models;
 using GoodReadsProject.Services.GoodReadsProjectEF;
 using GoodReadsProject.Services.GoodReadsProjectEF.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Text;
+
 
 namespace GoodReadsProject
 {
@@ -42,6 +38,17 @@ namespace GoodReadsProject
            
             services.AddDbContext<BooksContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
+
+            services.AddAuthorization(options => {
+                options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Administrator"));
+            });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new PathString("/User/Login");
+                    options.AccessDeniedPath = new PathString("/User/Forbidden");
+                });
             // For Identity  
             //services.AddIdentity<ApplicationUser, IdentityRole>()
             //    .AddEntityFrameworkStores<BooksContext>()

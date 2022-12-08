@@ -17,6 +17,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF
 
             user.HasMany(x => x.UserBooks).WithOne(u => u.User).HasForeignKey(f => f.UserId);
 
+            user.HasIndex(e => e.EmailAddress).IsUnique();
         }
     }
 }

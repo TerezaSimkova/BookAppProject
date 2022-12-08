@@ -8,5 +8,6 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
 {
     public interface IRepositoryUser : IRepository<User>
     {
+        public User GetByEmailAndPass(string userPassword, string userEmail);
     }
 }

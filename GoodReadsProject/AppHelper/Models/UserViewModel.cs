@@ -17,5 +17,13 @@ namespace GoodReadsProject.AppHelper.Models
         public string Address { get; set; }
         public string PersonalDescription { get; set; }
 
+        public Role? userRole { get; set; }
+        public string ReturnUrl { get; set; }
+
+        public enum Role
+        {
+            SignedInUser,
+            AnonymousUser,
+        }
     }
 }

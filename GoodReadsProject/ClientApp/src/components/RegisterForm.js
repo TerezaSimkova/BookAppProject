@@ -6,6 +6,8 @@ import './form.css';
 export class Register extends Component {
     constructor(props) {
         super(props);
+        //ToDo - risolvere uncontrolled to controlled, vuol dire che dopo submit
+        //vede i campi undefined non come string, deve essere string to string
         this.state = {
             name: '',
             surname: '',
@@ -16,7 +18,9 @@ export class Register extends Component {
             address: '',
             personalDescription: '',
             error: "Ooops something went wrong! Please wait...",
-            userInfo: {}
+            success: false,
+            message: '',
+            userInfo: ''
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -44,7 +48,7 @@ export class Register extends Component {
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(userInfo)
         }
-        fetch('/api/User', requestOptions)
+        var response = fetch('/api/User', requestOptions)
             .then(response => response.json())
             .then(data => this.setState({
                 name: data.name,
@@ -56,6 +60,24 @@ export class Register extends Component {
                 address: data.address,
                 personalDescription: data.personalDescription,
             }));
+        console.log(response);
+        //dopo submit reindirizza alla pagina di login 
+        if (response.ok) {
+            this.setState({
+                name: '',
+                surname: '',
+                username: '',
+                password: '',
+                emailAddress: '',
+                dateOfBirth: '',
+                address: '',
+                personalDescription: '',
+                success: true,
+                message: "User Created Successfully!",
+            });
+        } else {
+            //this.setState({ message: "Some error occured"});
+        }
 
     }
 
@@ -92,7 +114,7 @@ export class Register extends Component {
                             <div className="form_row">
                                 <div className="inner_row">
                                     <label>Date Of Birth*</label>
-                                    <input type="text" name="dateOfBirth" value={dateOfBirth} onChange={this.onChange} />
+                                    <input placeholder="yyyy-mm-gg" type="text" name="dateOfBirth" value={dateOfBirth} onChange={this.onChange} />
                                 </div>
                                 <div className="inner_row">
                                     <label>Your Address*</label>
@@ -110,7 +132,7 @@ export class Register extends Component {
                                 </div>                            
                             </div>
                             <button type="submit">Submit</button>
-                            <div className="message">{this.message ? <p>{this.message}</p> : null}</div>
+                            {/*<div className="message">{this.success ? <p>{this.state.message}</p> : null}</div>*/}
                         </form>
                     </div>
                 </div>

@@ -29,9 +29,6 @@ export class SideNav extends Component{
         }
         
     }
-    setShow = () => {
-        this.setState({ show: true });
-    }
     handleClick = () => {
         var a = document.querySelector('.side-nav-container .side-nav-menu .icon svg path')
         a.classList.toggle('pink');
@@ -99,19 +96,19 @@ export class SideNav extends Component{
                 <div className="side-nav-menu" id="sideMenuNav">
                     <Link className="icon anchor" to="/">
                         {this.state.add}
-                        <FontAwesomeIcon className={this.show ? "pink" : "green"} onClick={this.setShow} icon={faPlus} size="lg" />
+                        <FontAwesomeIcon onClick={this.setShow} icon={faPlus} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/myBookList">
                         {this.state.myList}
-                        <FontAwesomeIcon className={this.show ? "pink" : "green"} onClick={this.setShow} icon={faHeart} size="lg" />
+                        <FontAwesomeIcon onClick={this.setShow} icon={faHeart} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/info">
                         {this.state.info}
-                        <FontAwesomeIcon className={this.show ? "pink" : "green"} onClick={this.setShow} icon={faInfo} size="lg" />
+                        <FontAwesomeIcon onClick={this.setShow} icon={faInfo} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/contacts">
                         {this.state.contact}
-                        <FontAwesomeIcon className={this.show ? "pink" : "green"} onClick={this.setShow} icon={faPhone} size="lg" />
+                        <FontAwesomeIcon onClick={this.setShow} icon={faPhone} size="lg" />
                     </Link>
                 </div>
             </div>
