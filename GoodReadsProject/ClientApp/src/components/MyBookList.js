@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { SideNav } from './SideNav';
 import { User } from './User';
+import { Breadcrumbs } from './Breadcrumbs';
 
 export class BookList extends Component {
     constructor(props) {
@@ -39,6 +40,7 @@ export class BookList extends Component {
         } else {
             return (
                 <div className="container_pages">
+                    <Breadcrumbs />
                     <SideNav />
                     <User />
                     <div className="container_content">

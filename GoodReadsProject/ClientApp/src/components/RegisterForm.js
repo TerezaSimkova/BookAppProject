@@ -2,6 +2,7 @@
 import { SideNav } from './SideNav';
 import { Vip } from './vip';
 import './form.css';
+import { Breadcrumbs } from './Breadcrumbs';
 
 export class Register extends Component {
     constructor(props) {
@@ -85,6 +86,7 @@ export class Register extends Component {
         const { name, surname, username, emailAddress, address, personalDescription, dateOfBirth, password } = this.state;
         return (
             <div className="container_pages" >
+                <Breadcrumbs />
                 <SideNav />
                 <div className="container_content">
                     <h3 className="register_title">Create Your Account</h3>
