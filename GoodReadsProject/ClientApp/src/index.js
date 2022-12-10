@@ -11,6 +11,7 @@ import { Info } from './components/Info';
 import { Contacts } from './components/Contacts';
 import { Register } from './components/RegisterForm';
 import { Login } from './components/Login';
+import { Auth } from './components/Auth';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
@@ -23,7 +24,8 @@ ReactDOM.render(
         <Route path='/contacts' component={Contacts} />
         <Route path='/info' component={Info} />
         <Route path='/register' component={Register} />
-        <Route path='/login' component={Login} />
+        <Route path='/login' component={Auth} />
+        <Route path="/auth" component={Auth} />
   </BrowserRouter>,
   rootElement);
 
