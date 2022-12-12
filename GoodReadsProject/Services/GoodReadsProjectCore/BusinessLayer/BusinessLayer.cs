@@ -21,9 +21,10 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer
         }
 
         #region Books
-        public List<Book> FetchAllBooks()
+        public async Task<List<Book>> FetchAllBooks()
         {
-            return repositoryBook.GetAll();
+            var books = await repositoryBook.GetAllAsync();
+            return books;
         }
 
         public bool CreateBook(Book newBook)
@@ -43,8 +44,9 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer
 
         public Book GetBookById(int id)
         {
-            var book = FetchAllBooks().Single(x => x.BookId == id);
-            return repositoryBook.GetById(book.BookId);
+            throw new Exception();
+            //var book = FetchAllBooks().Single(x => x.BookId == id);
+            //return repositoryBook.GetById(book.BookId);
         }
         #endregion
         #region User

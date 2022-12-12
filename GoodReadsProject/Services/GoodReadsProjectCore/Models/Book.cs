@@ -28,7 +28,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
         [RegularExpression(@"^(0|-?\d{0,16}(\.\d{0,2})?)$")]
         public decimal Price { get; set; }     
         //FK verso Rating      
-        public int RatingId { get; set; }
+        public ICollection<BookRating> Ratings { get; set; }
         public ICollection<UserBook> UserBooks { get; set; }
 
         public enum BookGenr

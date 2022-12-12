@@ -347,9 +347,10 @@ code {
     margin-right: 5px;
     margin-left: 5px;
 }
-    .breadcrumbs li a {
-        text-decoration: none;
-    }
+.breadcrumbs li a {
+    text-decoration: none;
+    font-size: 12px;
+}
         .breadcrumbs li a:hover {
             color: #d80067;
         }
@@ -365,3 +366,11 @@ code {
 .non_active_link {
     color: #002720;
 }
+
+.book_content {
+    margin-bottom: 25px;
+}
+
+    .book_content .book_rating {
+        margin-top: 10px;
+    }

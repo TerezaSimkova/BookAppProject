@@ -8,5 +8,6 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
 {
     public interface IRepositoryBook : IRepository<Book>
     {
+       public Task<List<Book>> GetAllAsync();
     }
 }

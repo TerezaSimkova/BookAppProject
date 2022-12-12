@@ -24,7 +24,8 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer
         public bool DeleteRating(int id);
 
         //Book
-        public List<Book> FetchAllBooks();
+        //public List<Book> FetchAllBooks();
+        public Task<List<Book>> FetchAllBooks();
         public Book GetBookById(int id);
         public bool CreateBook(Book book);
         public bool EditBook(Book book);

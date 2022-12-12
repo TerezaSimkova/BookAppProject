@@ -1,4 +1,5 @@
 ﻿using GoodReadsProject.Services.GoodReadsProjectCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,9 +39,26 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
             return true;
         }
 
-        public List<Book> GetAll()
+        public async Task<List<Book>> GetAllAsync()
         {
-            return bcontx.Book.ToList();
+            //return bcontx.Book.AsNoTracking().Include(x => x.Ratings).ToList();
+            var books = await bcontx.Book.Select(b => new Book
+            {
+                BookName = b.BookName,
+                Author = b.Author,
+                BookDescription = b.BookDescription,
+                Ratings = b.Ratings.Select(r => 
+                new BookRating
+                {
+                    Title = r.Title,
+                    Description = r.Description,
+                    CountStars = r.CountStars,
+                    BookId = r.BookId,
+                    UserId = r.UserId
+                }).ToList()
+
+            }).ToListAsync();
+            return books;
         }
 
         public Book GetById(int bookId)
@@ -63,10 +81,15 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
             bookExist.Genr = item.Genr;
             bookExist.NumberOfPages = item.NumberOfPages;
             bookExist.Price = item.Price;
-            bookExist.RatingId = item.RatingId;
+            //bookExist.RatingId = item.RatingId;
 
             bcontx.SaveChanges();
             return true;
+        }
+
+        public List<Book> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

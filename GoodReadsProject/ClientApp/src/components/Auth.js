@@ -62,7 +62,7 @@ export function Auth() {
                     <form onSubmit={onSubmit}>
                         <h3>Login To Your Account</h3>
                         <div>
-                            <label>Email address</label>
+                            <label>E-mail Address</label>
                             <input
                                 type="email"
                                 value={emailAddress}

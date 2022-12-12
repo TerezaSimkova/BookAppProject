@@ -16,6 +16,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF
             user.Property(u => u.DateOfBirth).IsRequired();
 
             user.HasMany(x => x.UserBooks).WithOne(u => u.User).HasForeignKey(f => f.UserId);
+            user.HasMany(x => x.Ratings).WithOne(u => u.User).HasForeignKey(f => f.UserId);
 
             user.HasIndex(e => e.EmailAddress).IsUnique();
         }

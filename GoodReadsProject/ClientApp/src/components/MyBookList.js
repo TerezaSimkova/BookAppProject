@@ -46,11 +46,16 @@ export class BookList extends Component {
                     <div className="container_content">
                         <div className="books_row">
                             <ul>
-                                {Books?.map((book) => (
+                                {Books.map(book => (
                                     <li key={book.bookId}>
-                                        <h3>{book.bookName}</h3>
-                                        <h4>{book.author}</h4>
-                                        <p>{book.bookDescription}</p>
+                                        <div className="book_content">
+                                            <h3>{book.bookName}</h3>
+                                            <h4>{book.author}</h4>
+                                            <p>{book.bookDescription}</p>
+                                            <p className="book_rating">{book.ratings[0].countStars}</p>
+                                            <p><b>{book.ratings[0].title}</b></p>
+                                            <p>{book.ratings[0].description}</p>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>

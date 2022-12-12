@@ -12,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-
+using System.Text.Json.Serialization;
 
 namespace GoodReadsProject
 {
@@ -30,6 +30,8 @@ namespace GoodReadsProject
         {
 
             services.AddControllersWithViews();
+            //services.AddControllers().AddJsonOptions(x =>
+            //        x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
             services.AddScoped<IRepositoryBusinessLayer, BusinessLayer>();
             services.AddScoped<IRepositoryBook, BookRepository>();
@@ -38,6 +40,7 @@ namespace GoodReadsProject
            
             services.AddDbContext<BooksContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
+
 
             services.AddAuthorization(options => {
                 options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Administrator"));

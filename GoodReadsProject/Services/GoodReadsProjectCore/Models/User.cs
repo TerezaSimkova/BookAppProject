@@ -36,6 +36,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
         public ICollection<UserBook> UserBooks { get; set; }
         public Role? userRole { get; set; }
         public string ReturnUrl { get; set; }
+        public ICollection<BookRating> Ratings { get; set; }
 
         public enum UserType
         {

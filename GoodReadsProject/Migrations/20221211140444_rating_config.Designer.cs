@@ -4,14 +4,16 @@ using GoodReadsProject.Services.GoodReadsProjectEF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodReadsProject.Migrations
 {
     [DbContext(typeof(BooksContext))]
-    partial class BooksContextModelSnapshot : ModelSnapshot
+    [Migration("20221211140444_rating_config")]
+    partial class rating_config
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,14 +78,9 @@ namespace GoodReadsProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("RatingId");
 
                     b.HasIndex("BookId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("BookRating");
                 });
@@ -172,15 +169,7 @@ namespace GoodReadsProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GoodReadsProject.Services.GoodReadsProjectCore.Models.User", "User")
-                        .WithMany("Ratings")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Book");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("GoodReadsProject.Services.GoodReadsProjectCore.Models.UserBook", b =>
@@ -211,8 +200,6 @@ namespace GoodReadsProject.Migrations
 
             modelBuilder.Entity("GoodReadsProject.Services.GoodReadsProjectCore.Models.User", b =>
                 {
-                    b.Navigation("Ratings");
-
                     b.Navigation("UserBooks");
                 });
 #pragma warning restore 612, 618

@@ -24,12 +24,12 @@ namespace GoodReadsProject.Controllers
 
         // GET: api/<RatingController>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            IEnumerable<Book> books = mainBusinessLayer.FetchAllBooks();
+            var books =  await mainBusinessLayer.FetchAllBooks();
             if (books == null)
             {
-                return NotFound();
+                return NotFound(books);
             }
             return Ok(books);
         }
