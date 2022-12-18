@@ -1,0 +1,187 @@
+﻿.dark_background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+    .dark_background .dark_container_content {
+        width: 100%;
+        height: auto;
+        background-color: white;
+    }
+
+        .dark_background .dark_container_content .dark_inner_box h3 {
+            margin-bottom: 20px;
+        }
+
+        .dark_background .dark_container_content .dark_inner_box .edit_form_row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+            .dark_background .dark_container_content .dark_inner_box .edit_form_row input {
+                width: 100%;
+                word-wrap: break-word;
+            }
+
+            .dark_background .dark_container_content .dark_inner_box .edit_form_row .inner_row {
+                width: 100%;
+            }
+
+            .dark_background .dark_container_content .dark_inner_box .edit_form_row .inner_row_stars {
+                width: 100%;
+            }
+
+            .dark_background .dark_container_content .dark_inner_box .edit_form_row .row_stars {
+                display: flex;
+                justify-content: space-between;
+                display: flex;
+            }
+
+            .dark_background .dark_container_content .dark_inner_box .edit_form_row button {
+                height: 45px;
+            }
+
+            .dark_background .dark_container_content .dark_inner_box .edit_form_row .stars {
+                width: 4.5rem;
+            }
+
+
+
+.modal-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3333;
+    transform: translateZ(0);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2.5em 1.5em 1.5em 1.5em;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (min-width: 500px) {
+    /* Center the Modal! */
+    .modal-area {
+        left: 50%;
+        top: 45%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        max-width: 30em;
+        max-height: calc(100% - 1em);
+    }
+}
+
+._modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    line-height: 1;
+    background: white;
+    border: none;
+    outline: none;
+    box-shadow: 0;
+    width: 50px;
+    cursor: pointer;
+}
+
+    ._modal-close:hover {
+        background: white;
+    }
+
+._modal-close-icon {
+    width: 25px;
+    height: 25px;
+    fill: transparent;
+    stroke: black;
+    stroke-linecap: round;
+    stroke-width: 2;
+    border: none;
+}
+
+.modal-body {
+    padding-top: 0.25em;
+}
+
+._hide-visual {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.scroll-lock {
+    overflow: hidden;
+    margin-right: 17px;
+}
+
+
+.pencil {
+    filter: invert(13%) sepia(36%) saturate(1446%) hue-rotate(128deg) brightness(91%) contrast(105%);
+}
+
+    .pencil:hover {
+        filter: invert(14%) sepia(98%) saturate(6206%) hue-rotate(323deg) brightness(83%) contrast(107%);
+    }
+
+.bin {
+    filter: invert(13%) sepia(36%) saturate(1446%) hue-rotate(128deg) brightness(91%) contrast(105%);
+}
+
+    .bin:hover {
+        filter: invert(14%) sepia(98%) saturate(6206%) hue-rotate(323deg) brightness(83%) contrast(107%);
+    }
+
+
+.delete_text_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .delete_text_container .delete_main_text {
+        color: black;
+    }
+
+    .delete_text_container .delete_text {       
+        color: #d80067;
+    }
+
+.delete_form_row .inner_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+    .delete_form_row .inner_row button.ok {
+        width: 61px;
+        height: 38px;
+        font-size: 13px;
+    }
+
+    .delete_form_row .inner_row button.delete {
+        width: 125px;
+        height: 38px;
+        font-size: 13px;
+    }

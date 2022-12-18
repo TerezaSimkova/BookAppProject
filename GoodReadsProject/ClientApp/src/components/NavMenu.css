@@ -62,3 +62,6 @@ a.nav-text.nav-link::after {
 .navbar-toggler-icon {
     color: white;
 }
+.sideNavIcons:hover {
+    filter: invert(14%) sepia(98%) saturate(6206%) hue-rotate(323deg) brightness(83%) contrast(107%);
+}

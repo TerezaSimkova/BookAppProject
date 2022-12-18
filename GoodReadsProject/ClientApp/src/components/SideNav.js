@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { useEffect, useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
+import './NavMenu.css';
 
 //Icons
 import 'font-awesome/css/font-awesome.min.css';
@@ -96,19 +97,19 @@ export class SideNav extends Component{
                 <div className="side-nav-menu" id="sideMenuNav">
                     <Link className="icon anchor" to="/">
                         {this.state.add}
-                        <FontAwesomeIcon onClick={this.setShow} icon={faPlus} size="lg" />
+                        <FontAwesomeIcon className="sideNavIcons" onClick={this.setShow} icon={faPlus} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/myBookList">
                         {this.state.myList}
-                        <FontAwesomeIcon onClick={this.setShow} icon={faHeart} size="lg" />
+                        <FontAwesomeIcon className="sideNavIcons" onClick={this.setShow} icon={faHeart} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/info">
                         {this.state.info}
-                        <FontAwesomeIcon onClick={this.setShow} icon={faInfo} size="lg" />
+                        <FontAwesomeIcon className="sideNavIcons" onClick={this.setShow} icon={faInfo} size="lg" />
                     </Link>
                     <Link className="icon anchor" to="/contacts">
                         {this.state.contact}
-                        <FontAwesomeIcon onClick={this.setShow} icon={faPhone} size="lg" />
+                        <FontAwesomeIcon className="sideNavIcons" onClick={this.setShow} icon={faPhone} size="lg" />
                     </Link>
                 </div>
             </div>

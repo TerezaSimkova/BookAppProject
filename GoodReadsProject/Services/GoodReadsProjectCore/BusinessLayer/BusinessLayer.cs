@@ -97,8 +97,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer
 
         public BookRating GetRatingById(int id)
         {
-            var rating = FetchAllRatings().Single(x => x.RatingId == id);
-            return repositoryRating.GetById(rating.RatingId);
+            return repositoryRating.GetById(id);
         }
 
         public User GetUserByMailAndPassword(string userPassword, string userEmail)

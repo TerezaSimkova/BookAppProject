@@ -44,12 +44,16 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
             //return bcontx.Book.AsNoTracking().Include(x => x.Ratings).ToList();
             var books = await bcontx.Book.Select(b => new Book
             {
+                BookId = b.BookId,
+                Price = b.Price,
+                NumberOfPages = b.NumberOfPages,
                 BookName = b.BookName,
                 Author = b.Author,
                 BookDescription = b.BookDescription,
                 Ratings = b.Ratings.Select(r => 
                 new BookRating
                 {
+                    RatingId = r.RatingId,
                     Title = r.Title,
                     Description = r.Description,
                     CountStars = r.CountStars,

@@ -44,7 +44,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
 
         public BookRating GetById(int id)
         {
-            var rating = bcontx.BookRating.Single(x => x.RatingId == id);
+            var rating = bcontx.BookRating.SingleOrDefault(x => x.RatingId == id);
             return rating;
         }
 

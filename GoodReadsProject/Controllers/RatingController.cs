@@ -63,10 +63,12 @@ namespace GoodReadsProject.Controllers
         }
 
         // PUT api/<RatingController>/5
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] BookRating rating)
+        // pass another model - frontend model
+        [HttpPut]
+        [Route("edit")]
+        public IActionResult Put([FromBody] BookRating rating)
         {
-            var findRating = mainBusinessLayer.GetRatingById(id);
+            var findRating = mainBusinessLayer.GetRatingById(rating.RatingId);
             if (findRating != null)
             {
                 mainBusinessLayer.EditRating(rating);
@@ -79,13 +81,12 @@ namespace GoodReadsProject.Controllers
         }
 
         // DELETE api/<RatingController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("{ratingId}")]
+        public IActionResult Delete([FromRoute] int ratingId)
         {
-            var findRating = mainBusinessLayer.GetRatingById(id);
-            if (findRating != null)
+            if (ratingId > 0)
             {
-                mainBusinessLayer.DeleteRating(id);
+                mainBusinessLayer.DeleteRating(ratingId);
                 return Ok();
             }
             else
