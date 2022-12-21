@@ -50,7 +50,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
                 BookName = b.BookName,
                 Author = b.Author,
                 BookDescription = b.BookDescription,
-                Ratings = b.Ratings.Select(r => 
+                Ratings = b.Ratings.Select(r =>
                 new BookRating
                 {
                     RatingId = r.RatingId,
@@ -58,7 +58,11 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
                     Description = r.Description,
                     CountStars = r.CountStars,
                     BookId = r.BookId,
-                    UserId = r.UserId
+                    User = new User
+                    {
+                        Name = r.User.Name,
+                        Surname = r.User.Surname,
+                    }
                 }).ToList()
 
             }).ToListAsync();

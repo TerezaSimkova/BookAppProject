@@ -19,7 +19,7 @@ export const popupDeleteForm = ({ onSubmitDelete }) => {
             history.go(0);
         }
         else {
-            console.log(response.status, "Chiamata non é andata buon fine.")
+            console.log(response.status, "It was not possible delete the review. Because of a problem with review.")
         }
     }
 

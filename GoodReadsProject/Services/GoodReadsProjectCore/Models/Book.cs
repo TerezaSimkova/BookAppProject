@@ -30,6 +30,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
         //FK verso Rating      
         public ICollection<BookRating> Ratings { get; set; }
         public ICollection<UserBook> UserBooks { get; set; }
+        public ICollection<User> Users { get; set; }
 
         public enum BookGenr
         {

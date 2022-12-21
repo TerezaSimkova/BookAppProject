@@ -39,7 +39,7 @@ export class SideNav extends Component{
         this.setState({ add: 'Add' });
         this.setState({ info: 'Info' });
         this.setState({ contact: 'Contacts' });
-        this.setState({ myList: 'My List' });
+        this.setState({ myList: 'Book List' });
 
         // toggle class on click
         var sideNavBtnClose = document.getElementById("hamburgerMenuSidenNav");

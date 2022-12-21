@@ -7,7 +7,14 @@ import { ModalDelete } from './ModalDelete';
 import TriggerButtonEdit from './TriggerButtonEdit';
 import TriggerButtonDelete from './TriggerButtonDelete';
 import StarRatingComponent from 'react-star-rating-component';
+import Spinner from './loader';
 import './Popup.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import 'font-awesome/css/font-awesome.min.css';
+import {
+    faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons'
+
 
 export class BookList extends Component {
     constructor(props) {
@@ -17,7 +24,7 @@ export class BookList extends Component {
             error: null,
             isLoaded: false,
             rating: 1,
-            countStars:0,
+            countStars: 0,
             isShown: 0,
             isDelete: 0,
             Books: [],
@@ -46,11 +53,11 @@ export class BookList extends Component {
     }
     showModal = (book) => {
         this.setState({ isShown: book.bookId });
-        this.toggleScrollLock();     
+        this.toggleScrollLock();
     };
     showModalDelete = (book) => {
         this.setState({ isDelete: book.bookId });
-        this.toggleScrollLock();     
+        this.toggleScrollLock();
     };
     closeModal = () => {
         this.setState({ isShown: false });
@@ -61,7 +68,7 @@ export class BookList extends Component {
         this.setState({ isDelete: false });
         this.TriggerButton.focus();
         this.toggleScrollLock();
-    };   
+    };
     onClickOutside = (event) => {
         if (this.modal && this.modal.contains(event.target)) return;
         this.closeModal();
@@ -80,23 +87,39 @@ export class BookList extends Component {
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div className="loading">Loading...</div>;
+            return <div className="loading"><Spinner /></div>;
         } else {
             return (
-                <div className="container_pages">
+                <div className="container_pages_books">
                     <Breadcrumbs />
                     <SideNav />
-                    <User />
-                    <div className="container_content">
+                    {/*<User />*/}
+                    <div className="container_content_books">
                         <div className="books_row">
+                            <div className="search_container">
+                                <input className="search_input" placeholder="Search for book ..." />
+                                <FontAwesomeIcon className="search_icon" icon={faMagnifyingGlass} size="lg" />
+                            </div>
+                            <div className="search_rating_part">
+                                <StarRatingComponent
+                                    name="rate2"
+                                    starCount={5}
+                                />
+                                <p>*Choose your rating of the book</p>
+                                <button type="submit" name="Submit">Submit</button>
+                            </div>
                             <div>
-                                {Books.map((book) => (
+                                {Books.map((book, i) => (
                                     <div key={book.bookId}>
                                         <div className="book_content">
                                             <div className="book_info">
                                                 <h3>{book?.bookName}</h3>
                                                 <h4>{book?.author}</h4>
                                                 <p>{book?.bookDescription}</p>
+                                                <div className="book_details">
+                                                    <p><b>Pages:</b> {book?.numberOfPages}</p>
+                                                    <p><b>Price:</b> {book?.price} <b>€</b> </p>
+                                                </div>
                                             </div>
                                             <div className="book_stars">
                                                 <div className="book_stars_component">
@@ -108,10 +131,10 @@ export class BookList extends Component {
                                                     />
                                                     <div className="book_stars_icons">
                                                         <TriggerButtonEdit
-                                                            showModal={() => (this.showModal(book))}                                                            
+                                                            showModal={() => (this.showModal(book))}
                                                             buttonRef={(n) => (this.TriggerButton = n)}
                                                             triggerText={this.props.triggerText}
-                                                        />                                                      
+                                                        />
                                                         {this.state.isShown === book.bookId ? (
                                                             <Modal
                                                                 key={book.bookId}
@@ -139,11 +162,13 @@ export class BookList extends Component {
                                                                 onClickOutsideDelete={this.onClickOutsideDelete}
                                                             />
                                                         ) : null}
+
                                                     </div>
                                                 </div>
-                                                <div key={book.ratings[0]?.ratingId}>
+                                                <div className="review_block" key={book.ratings[i]?.ratingId}>
                                                     <p><b>{book.ratings[0]?.title}</b></p>
                                                     <p>{book.ratings[0]?.description}</p>
+                                                    <p className="review_user"><b>Review added by:</b> {book.ratings[0]?.user.name} {book.ratings[0]?.user.surname}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,7 +180,7 @@ export class BookList extends Component {
                     </div>
                 </div>
 
-               );
+            );
         }
     }
 }

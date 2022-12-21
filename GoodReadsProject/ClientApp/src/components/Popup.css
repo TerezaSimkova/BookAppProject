@@ -185,3 +185,55 @@
         height: 38px;
         font-size: 13px;
     }
+/*Reviews*/
+
+.review_block {
+    width: 100%;
+}
+    .review_block .review_user {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+    }
+
+/*Search bar*/
+.search_container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+}
+.search_container .search_input {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    padding: 0.5rem;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0 !important;
+    border-bottom: 1px solid #06484a;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: unset;
+    background-color: none;
+}
+
+    .search_container .search_input:focus-visible {
+        outline: none;
+    }
+    svg.search_icon {
+        position: absolute;
+        padding-right: 15px;
+    }
+
+.search_rating_part {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+    .search_rating_part p {
+        color: #ffc107;
+    }

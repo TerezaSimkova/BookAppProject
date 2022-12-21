@@ -393,11 +393,13 @@ code {
         justify-content: space-between;
         align-items: center;
     }
+
     .book_content .book_stars {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
+
         .book_content .book_stars .book_stars_icons {
             display: flex;
             width: 47px;
@@ -417,3 +419,56 @@ code {
         align-items: flex-start;
         margin-bottom: 20px;
     }
+    .book_content .book_info .book_details {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+        .book_content .book_info .book_details p {
+            padding-right: 15px;
+            padding-top: 7px;
+        }
+
+.container_pages_books {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 120px;
+}
+
+.container_pages_books .container_content_books {
+    width: 100%;
+    height: 100%;
+    margin: 50px 0;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container_pages_books .container_content_books .books_row {
+    max-width: 50%;
+    position: absolute;
+    padding-bottom: 150px;
+}
+
+    .container_pages_books .container_content_books .books_row .serach_input {
+        display: flex;
+        width: 100%;
+        height: 45px;
+        padding: 0.5rem;
+        font-size: 1.1em;
+        font-weight: 500;
+        margin-bottom: 12px;
+        margin-right: 10px;
+        border-bottom: 1px solid #06484a;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+    }
+        .container_pages_books .container_content_books .books_row .serach_input:focus-visible {
+            outline: none;
+        }
