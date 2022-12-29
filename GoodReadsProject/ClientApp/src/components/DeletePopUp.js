@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
-export const popupDeleteForm = ({ onSubmitDelete }) => {
+export const PopupDeleteForm = ({ onSubmitDelete }) => {
 
     const history = useHistory();
     const [data, setData] = useState({
@@ -45,4 +45,4 @@ export const popupDeleteForm = ({ onSubmitDelete }) => {
     );
 }
 
-export default popupDeleteForm;
+export default PopupDeleteForm;

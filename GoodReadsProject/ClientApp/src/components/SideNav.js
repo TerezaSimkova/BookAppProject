@@ -95,7 +95,7 @@ export class SideNav extends Component{
                 <div className="menu-btn"><a onClick={this.openSideMenu} id="hamburgerMenuSidenNav"><FontAwesomeIcon className="side-nav-heart" icon={faListDots} size="lg" /></a></div>
                 <button onClick={this.closeSideMenu} className="side-nav-close-btn" id="sideMenuNavClose"><FontAwesomeIcon icon={faClose} size="lg" /></button>
                 <div className="side-nav-menu" id="sideMenuNav">
-                    <Link className="icon anchor" to="/">
+                    <Link className="icon anchor" to="/addBook">
                         {this.state.add}
                         <FontAwesomeIcon className="sideNavIcons" onClick={this.setShow} icon={faPlus} size="lg" />
                     </Link>

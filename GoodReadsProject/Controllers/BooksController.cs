@@ -1,4 +1,5 @@
-﻿using GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer;
+﻿using GoodReadsProject.AppHelper.Models;
+using GoodReadsProject.Services.GoodReadsProjectCore.BusinessLayer;
 using GoodReadsProject.Services.GoodReadsProjectCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,14 +47,27 @@ namespace GoodReadsProject.Controllers
             return Ok(book);
         }
 
-        // POST api/<RatingController>
+        // POST api/<BooksController>
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult CreateBook([FromBody] BookViewModel viewBook)
         {
-            if (book == null)
+            var bookSerialize = System.Text.Json.JsonSerializer.Serialize<BookViewModel>(viewBook);
+            var bookDeserial = System.Text.Json.JsonSerializer.Deserialize<BookViewModel>(bookSerialize);
+
+            if (bookDeserial == null)
             {
                 return BadRequest("Uups something went wrong!");
             }
+            Book book = new Book
+            {
+                BookCode = bookDeserial.BookCode,
+                BookName = bookDeserial.BookName,
+                BookDescription = bookDeserial.BookDescription,
+                Author = bookDeserial.Author,
+                NumberOfPages = bookDeserial.NumberOfPages,
+                Price = bookDeserial.Price,
+                Genr = (Book.BookGenr)bookDeserial.Genr
+            };
             bool isAdded = mainBusinessLayer.CreateBook(book);
             if (!isAdded)
             {

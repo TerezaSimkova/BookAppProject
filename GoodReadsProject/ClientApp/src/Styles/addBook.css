@@ -1,0 +1,131 @@
+﻿.add_container_content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .add_container_content .inner_container {
+        max-width: 900px;
+        height: auto;
+        margin: 100px 150px;
+    }
+
+        .add_container_content .inner_container h5 {
+            max-width: 800px;
+        }
+
+        .add_container_content .inner_container .form_container {
+            margin-top: 30px;
+        }
+
+        .add_container_content .inner_container .book_form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+            .add_container_content .inner_container .book_form .book_form_row {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+            }
+
+                .add_container_content .inner_container .book_form .book_form_row .row {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    margin: 0;
+                    margin-right: 10px;
+                }
+                    .add_container_content .inner_container .book_form .book_form_row .row input {
+                        width: 100%;
+                    }
+
+            .add_container_content .inner_container .book_form .book_form_row_four {
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+                .add_container_content .inner_container .book_form .book_form_row_four .row {
+                    margin: 0;
+                    width: 100%;
+                }
+            .add_container_content .inner_container .book_form .book_form_row_two {
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+                .add_container_content .inner_container .book_form .book_form_row_two .row {
+                    margin: 0;
+                    width: 100%;
+                    margin-right: 10px;
+                }
+                    .add_container_content .inner_container .book_form .book_form_row_two .row.genr {
+                        margin: 0;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                    }
+            .add_container_content .inner_container .book_form .book_form_row_btn {
+                margin-top: 10px;
+                display: flex;
+                width: 100%;
+                justify-content: flex-end;
+                margin-right: 10px;
+                margin-bottom:20px;
+            }
+
+            .add_container_content .inner_container .book_form textarea {
+                overflow: auto;
+                resize: vertical;
+                background-color: #8aa9a330;
+                border: none;
+                border-radius: 4px;
+                padding: 8px 20px;
+            }
+            /* .add_container_content .inner_container .book_form .book_price input{
+               width: 108px;
+            }
+            .add_container_content .inner_container .book_form .book_pages input {
+                width: 113px;
+            }
+            .add_container_content .inner_container .book_form .book_author input {
+                width: 24rem;
+            }
+            .add_container_content .inner_container .book_form .book_title input {
+                width: 26rem;
+            }*/
+            .add_container_content .inner_container .book_form .book_genr .book_genres {
+                height: 45px;
+                border-radius: 4px;
+                background-color: #a3c4a333;
+                border: none;
+                padding-left: 10px;
+            }
+
+            .add_container_content .inner_container .book_form .book_btn {
+                float: right;
+                display: flex;
+                width: 249px;
+                justify-content: space-between;
+            }
+
+            .add_container_content .inner_container .book_form .book_btn {
+                float: right;
+                display: flex;
+                width: 249px;
+                justify-content: space-between;
+            }
+
+                .add_container_content .inner_container .book_form .book_btn .book_btn_red {
+                    background-color: #d80067;
+                    color: white;
+                }

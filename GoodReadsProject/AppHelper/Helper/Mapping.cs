@@ -9,6 +9,7 @@ namespace GoodReadsProject.AppHelper.Helper
 {
     public static class Mapping
     {
+        //User
         public static UserViewModel ToUserViewModel(this User user)
         {
             return new UserViewModel
@@ -39,6 +40,33 @@ namespace GoodReadsProject.AppHelper.Helper
                 PersonalDescription = userViewModel.PersonalDescription,
                 userRole = User.Role.SignedInUser,
                 ReturnUrl = userViewModel.ReturnUrl
+            };
+        }
+        //Book
+        public static BookViewModel ToBookViewModel(this Book book)
+        {
+            return new BookViewModel
+            {
+                BookCode = book.BookCode,
+                BookName = book.BookName,
+                BookDescription = book.BookDescription,
+                Author = book.Author,
+                NumberOfPages = book.NumberOfPages,
+                Price = book.Price,
+                Genr = (BookViewModel.BookGenr)book.Genr
+            };
+        }
+        public static Book ToBook(this BookViewModel bookViewModel)
+        {
+            return new Book
+            {
+                BookCode = bookViewModel.BookCode,
+                BookName = bookViewModel.BookName,
+                BookDescription = bookViewModel.BookDescription,
+                Author = bookViewModel.Author,
+                NumberOfPages = bookViewModel.NumberOfPages,
+                Price = bookViewModel.Price,
+                Genr = (Book.BookGenr)bookViewModel.Genr
             };
         }
     }

@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
-export const popupEditForm = ({ onSubmit }) => {
+export const PopupEditForm = ({ onSubmit }) => {
 
     const history = useHistory();
     const [data, setData] = useState({
@@ -84,4 +84,4 @@ export const popupEditForm = ({ onSubmit }) => {
     );
 }
 
-export default popupEditForm;
+export default PopupEditForm;

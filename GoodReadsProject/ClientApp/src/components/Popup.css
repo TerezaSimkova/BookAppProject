@@ -232,8 +232,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 50px;
 }
     .search_rating_part p {
         color: #ffc107;
+        font-size: 10px;
     }

@@ -14,9 +14,9 @@ namespace GoodReadsProject.Services.GoodReadsProjectCore.Models
         public int BookCode { get; set; }
         [DisplayName("Pages")]
         public int NumberOfPages { get; set; }
-        [Required]
+
         [DisplayName("Book Genr")]
-        public BookGenr Genr { get; set; }
+        public BookGenr? Genr { get; set; }
         [Required]
         [StringLength(25)]
         public string BookName { get; set; }

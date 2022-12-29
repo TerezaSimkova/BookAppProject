@@ -12,6 +12,7 @@ import { Contacts } from './components/Contacts';
 import { Register } from './components/RegisterForm';
 import { Login } from './components/Login';
 import { Auth } from './components/Auth';
+import { AddBook } from './components/AddBook';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route path='/register' component={Register} />
         <Route path='/login' component={Auth} />
         <Route path="/auth" component={Auth} />
+        <Route path="/addBook" component={AddBook} />
   </BrowserRouter>,
   rootElement);
 
