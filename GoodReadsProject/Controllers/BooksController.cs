@@ -58,6 +58,7 @@ namespace GoodReadsProject.Controllers
             {
                 return BadRequest("Uups something went wrong!");
             }
+
             Book book = new Book
             {
                 BookCode = bookDeserial.BookCode,
@@ -66,7 +67,7 @@ namespace GoodReadsProject.Controllers
                 Author = bookDeserial.Author,
                 NumberOfPages = bookDeserial.NumberOfPages,
                 Price = bookDeserial.Price,
-                Genr = (Book.BookGenr)bookDeserial.Genr
+                Genr = (Book.BookGenr?)bookDeserial.Genr
             };
             bool isAdded = mainBusinessLayer.CreateBook(book);
             if (!isAdded)

@@ -22,7 +22,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
             {
                 return false;
             }
-          
+
             bcontx.Book.Add(item);
             bcontx.SaveChanges();
             return true;

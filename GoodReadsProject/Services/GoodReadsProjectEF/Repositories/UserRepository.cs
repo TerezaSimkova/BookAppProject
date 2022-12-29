@@ -20,7 +20,7 @@ namespace GoodReadsProject.Services.GoodReadsProjectEF.Repositories
             if(item == null)
             {
                 return false;
-            }
+            }         
             bcontx.User.Add(item);
             bcontx.SaveChanges();
             return true;

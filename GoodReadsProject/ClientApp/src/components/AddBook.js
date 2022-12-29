@@ -54,7 +54,7 @@ export const AddBook = () => {
             Price: parseInt(price[0]),
             NumberOfPages: parseInt(pages[0]),
             BookCode: parseInt(bookCode[0]),
-            Genr: setData({ [data.bookGenr]: parseInt(value) })
+            Genr: parseInt(value)
         };
 
         const requestOptions = {
