@@ -402,7 +402,7 @@ code {
 
         .book_content .book_stars .book_stars_icons {
             display: flex;
-            width: 47px;
+            width: 77px;
             flex-direction: row;
             align-items: flex-end;
             justify-content: space-between;

@@ -1,12 +1,13 @@
 ﻿import React, { Component } from 'react';
 import { SideNav } from './SideNav';
-import { User } from './User';
 import { Breadcrumbs } from './Breadcrumbs';
 import { Modal } from './Modal';
 import { ModalDelete } from './ModalDelete';
+import { ModalRating } from './ModalRating';
 import TriggerButtonEdit from './TriggerButtonEdit';
 import TriggerButtonDelete from './TriggerButtonDelete';
 import StarRatingComponent from 'react-star-rating-component';
+import TriggerButtonAddRating from './TriggerButtonRating';
 import Spinner from './loader';
 import './Popup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,6 +28,7 @@ export class BookList extends Component {
             countStars: 0,
             isShown: 0,
             isDelete: 0,
+            isRating: 0,
             Books: [],
         };
     }
@@ -59,8 +61,17 @@ export class BookList extends Component {
         this.setState({ isDelete: book.bookId });
         this.toggleScrollLock();
     };
+    showModalRating = (book) => {
+        this.setState({ isRating: book.bookId });
+        this.toggleScrollLock();
+    };
     closeModal = () => {
         this.setState({ isShown: false });
+        this.TriggerButton.focus();
+        this.toggleScrollLock();
+    };
+    closeModalRating = () => {
+        this.setState({ isRating: false });
         this.TriggerButton.focus();
         this.toggleScrollLock();
     };
@@ -93,7 +104,6 @@ export class BookList extends Component {
                 <div className="container_pages_books">
                     <Breadcrumbs />
                     <SideNav />
-                    {/*<User />*/}
                     <div className="container_content_books">
                         <div className="books_row">
                             <div className="search_container">
@@ -123,18 +133,38 @@ export class BookList extends Component {
                                             </div>
                                             <div className="book_stars">
                                                 <div className="book_stars_component">
+                                                    {book.ratings[i] ? (
                                                     <StarRatingComponent
                                                         key={book.ratings[0]?.ratingId}
                                                         name="rate1"
                                                         starCount={5}
                                                         value={book.ratings[0]?.countStars}
                                                     />
-                                                    <div className="book_stars_icons">
+                                                    ) : null}
+                                                    <div className="book_stars_icons">                                                       
+                                                        <TriggerButtonAddRating
+                                                            showModal={() => (this.showModalRating(book))}
+                                                            buttonRef={(n) => (this.TriggerButton = n)}
+                                                            triggerText={this.props.triggerText}
+                                                        />
+                                                        {this.state.isRating === book.bookId ? (
+                                                        <ModalRating
+                                                            key={book.bookId}
+                                                            onSubmit={book.ratings[0]?.ratingId}
+                                                            modalRef={(n) => (this.modal = n)}
+                                                            buttonRef={(n) => (this.closeButton = n)}
+                                                            closeModal={this.closeModalRating}
+                                                            onKeyDown={this.onKeyDown}
+                                                            onClickOutside={this.onClickOutside}
+                                                            />
+                                                        ) : null}
+                                                        {book.ratings[i] ? (
                                                         <TriggerButtonEdit
                                                             showModal={() => (this.showModal(book))}
                                                             buttonRef={(n) => (this.TriggerButton = n)}
                                                             triggerText={this.props.triggerText}
-                                                        />
+                                                            />
+                                                        ) : <p> Rate Me!</p>}
                                                         {this.state.isShown === book.bookId ? (
                                                             <Modal
                                                                 key={book.bookId}
@@ -146,11 +176,13 @@ export class BookList extends Component {
                                                                 onClickOutside={this.onClickOutside}
                                                             />
                                                         ) : null}
+                                                        {book.ratings[i] ? (
                                                         <TriggerButtonDelete
                                                             showModalDelete={() => (this.showModalDelete(book))}
                                                             buttonRef={(n) => (this.TriggerButton = n)}
                                                             triggerText={this.props.triggerText}
-                                                        />
+                                                            />
+                                                        ) : null}
                                                         {this.state.isDelete === book.bookId ? (
                                                             <ModalDelete
                                                                 key={book.bookId}
@@ -165,11 +197,13 @@ export class BookList extends Component {
 
                                                     </div>
                                                 </div>
+                                                {book.ratings[i] ? (
                                                 <div className="review_block" key={book.ratings[i]?.ratingId}>
                                                     <p><b>{book.ratings[0]?.title}</b></p>
                                                     <p>{book.ratings[0]?.description}</p>
                                                     <p className="review_user"><b>Review added by:</b> {book.ratings[0]?.user.name} {book.ratings[0]?.user.surname}</p>
-                                                </div>
+                                                    </div>
+                                                ): null}
                                             </div>
                                         </div>
                                     </div>

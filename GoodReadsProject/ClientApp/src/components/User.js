@@ -1,5 +1,9 @@
 ﻿import React, { Component } from 'react';
-import Avatar from 'react-avatar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import 'font-awesome/css/font-awesome.min.css';
+import {
+    faUserCog
+} from '@fortawesome/free-solid-svg-icons'
 
 export class User extends Component {
     constructor(props) {
@@ -37,22 +41,24 @@ export class User extends Component {
             return <div className="loading">Loading...</div>;
         } else {
             return (
-                <div className="container_pages">
-                    <div className="container_content">
+                <div className="container_pages_user">
+                    <div className="container_content_user">
                         <div>
-                            <ul>
-                                {User?.map((user) => (
-                                    <li key={user.userId}>
-                                        <h3>Personal Information</h3>
-                                        <h3>{user.name} {user.surname}</h3>
-                                        <div className="user_foto"></div>
-                                        <p>{user.personalDescription}</p>
-                                        <p><b>Age:</b> {user.age}</p>
-                                        <p><b>Date Of Birth:</b> {user.dateOfBirth}</p>
-                                        <p><b>E-mail Address:</b> {user.emailAddress}</p>
-                                    </li>
-                                ))}
-                            </ul>
+                            {User?.map((user) => (
+                                <div key={user.userId}>
+                                    <div className="external_content_user">
+                                        <FontAwesomeIcon icon={faUserCog} size="3x" />
+                                        <div className="content_user">
+                                            <h4>Personal Information</h4>
+                                            <h5>{user.name} {user.surname}</h5>
+                                        </div>
+                                    </div>
+                                    <p>{user.personalDescription}</p>
+                                    <p><b>Age:</b> {user.age}</p>
+                                    <p><b>Date Of Birth:</b> {user.dateOfBirth}</p>
+                                    <p><b>E-mail Address:</b> {user.emailAddress}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
